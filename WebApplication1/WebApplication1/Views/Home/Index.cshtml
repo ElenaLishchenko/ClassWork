@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Записная книжка</title>
+</head>
+<body>
+    <div>
+        <h3>Контакты</h3>
+        <table>
+            <tr>
+                <td><p>Имя</p></td>
+                <td><p>Отчество</p></td>
+                <td><p>Фамилия</p></td>
+                <td><p>Телефон</p></td>
+                <td><p>Эл.почта</p></td>
+                <td></td>
+            </tr>
+            @foreach (var user in ViewBag.Users)
+            {
+            <tr>
+                <td><p>@user.Name</p></td>
+                <td><p>@user.Patronymic</p></td>
+                <td><p>@user.Surname</p></td>
+                <td><p>@user.PhoneNumber</p></td>
+                <td><p>@user.Email</p></td>                
+
+                <td><p><a href="/Home/Edit/@user.Id">Редактировать</a></p></td>
+                <td><p><a href="/Home/Delete/@user.Id">Удалить</a></p></td>
+            </tr>
+            }
+        </table>
+        <p><a href="/Home/Add/">Добавить запись</a></p>
+    </div>
+</body>
+</html>
